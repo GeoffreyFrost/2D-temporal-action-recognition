@@ -6,9 +6,9 @@ First place (after video presenation) solution for IndabaX South Africa 2021 hac
 
 Hosted by an autonmous shopping venture, the challenge focused on using CV to determine if an item had been taken off a shelf given a sequence skeletal keypoints from a customer’s shopping session. 
 
-We were inspired by SOTA skeleton-based action recognition techniques that rely on the inherent graph structure of human skeletons, whereby each joint is represented as a node, and bones as edges. For this competition, we implement variants of the [CTR-GCN architecture](https://arxiv.org/abs/2107.12213). This network relies on learnt and fixed graph topology (represented as adjacency matrices) to condition an aggregation of standard temporal convolutional layers. Unlike the base implementation which simply normalises and flattens features output by the last layer (to be fed into a linear classification), we leverage the temporal nature of these output features by:
+We were inspired by SOTA skeleton-based action recognition techniques that rely on the inherent graph structure of human skeletons, whereby each joint is represented as a node, and bones as edges. For this competition, we implement variants of the [CTR-GCN architecture](https://arxiv.org/abs/2107.12213). This network relies on learnt and fixed graph topology (represented as adjacency matrices) to condition an aggregation of standard temporal convolutional layers. Unlike the base implementation which simply normalises and flattens the last activation map (to be fed into a linear classification head), we leverage the temporal nature of these output features by using:
 
-1) A multi-head attention layer to weight features from specific instances in time more relevant to the action and, 
+1) A multi-head attention layer to weight features from specific instances in time more relevant to the action and; 
 2) A transformer encoder network to produce a single context-rich feature vector.
 
 Model 1's public test AUC was 0.878 (private 0.719)
